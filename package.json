@@ -1,0 +1,32 @@
+{
+  "name": "hypertube-start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpirzent/hypertuber-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpirzent/hypertuber-node/issues"
+  },
+  "homepage": "https://github.com/jpirzent/hypertuber-node#readme",
+  "dependencies": {
+    "cookie-session": "^2.0.0-beta.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.3",
+    "nodemon": "^1.18.9",
+    "passport": "^0.4.0",
+    "passport-42": "^1.2.4",
+    "passport-google-oauth20": "^1.0.0",
+    "passport-local": "^1.0.0"
+  }
+}
