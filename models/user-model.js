@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 // const findOrCreate = require('findOrCreate');
 const userSchema = new Schema({
 	username: String,
-	googleId: String,
+	oauthId: String,
 	thumbnail: String,
 	first: String,
 	last: String,

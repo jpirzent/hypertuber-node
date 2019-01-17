@@ -11,13 +11,14 @@ router.get('/login', (req,res) => {
 router.get('/logout', (req,res) => {
 	//handle with passport
 	console.log('going to: /logout');
+	req.session.user = null;
 	req.logout();
 	res.redirect('/');
 });
 
 //auth google
 router.get('/google', passport.authenticate('google', {
-	scope: ['profile']
+	scope: ['profile', 'email']
 }));
 
 //callback route for google to redirect to
