@@ -6,10 +6,13 @@ const authRoutes = require('./routes/auth-routes');
 const signupRoutes = require('./routes/signup-routes');
 const profileRoutes = require('./routes/profile-routes');
 const passportSetup = require('./config/passport-setup');
+const functions = require('./functions/functions');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const session = require('express-session');
 const validator = require('express-validator');
+const cors = require('cors');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 
@@ -21,10 +24,14 @@ app.set('view engine', 'ejs');
 app.use(session({secret: "American Pie: Beta House", saveUninitialized: false, resave: false}));
 
 //setup body-parser
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 //setup express-validator
 app.use(validator());
+
+//setup cors
+app.use(cors());
 
 //init passport
 app.use(passport.initialize());
@@ -45,6 +52,12 @@ app.use('/signup', signupRoutes);
 app.get('/', (req, res) => {
 	console.log('going to: /home');
 	res.render('home', { user: req.user });
+});
+
+app.post('/test', (req, res, next) => {
+	console.log('route /test is called');
+	console.log(req );
+	next();
 });
 
 

@@ -7,7 +7,8 @@ const userSchema = new Schema({
 	thumbnail: String,
 	first: String,
 	last: String,
-	email: String
+	email: String,
+	pwd: String
 });
 
 // User.plugin('findOrCreate');

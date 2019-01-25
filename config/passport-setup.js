@@ -1,9 +1,11 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const IntraStrategy = require('passport-42').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const keys = require('./keys');
 const User = require('../models/user-model');
 const mongo = require('mongodb');
+const bcrypt = require('bcrypt-nodejs');
 
 passport.serializeUser((user, done) => {
 	console.log('serializing: ' + user);
@@ -77,4 +79,33 @@ passport.use(
 				}
 			});
 		})
+);
+
+
+passport.use(
+	new LocalStrategy(
+		function (username, password, done) {
+			console.log(username);
+			console.log(password);
+			try {
+				User.find({username: username}).then(res => {
+					if (res.length == 1){
+						console.log(res);
+						let hash = bcrypt.compareSync(password, res[0].pwd);
+						console.log(hash);
+						if (hash)
+							return (done(null, res[0]))
+						else
+							return (done(null, false));
+					}
+					else
+						return (done(null, false));
+				}).catch(err => {
+					return (done(err));
+				})
+		} catch (e) {
+			console.log(e);
+		}
+		}
+	)	
 );

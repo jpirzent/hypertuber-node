@@ -63,6 +63,19 @@
         <main>
 			<a class="google-btn" href="/auth/google">Google+</a>
 			<a class="google-btn" href="/auth/42">42</a>
-        </main>
+
+
+			<form action="/auth/local" method="POST">
+				<div class="form-row">
+					<div class="col">
+						<input type="text" style="width: 200px; margin-top: 20px;" placeholder="Username" name="username">
+					</div>
+					<div class="col">
+						<input type="password" style="width: 200px; margin-top: 20px;" placeholder="Password" name="password">
+					</div>
+					<button type="submit" style="width: 200px; margin-top: 20px;" name="submit">Login</button>
+				</div>
+			</form>
+		</main>
     </body>
 </html>

@@ -14,5 +14,9 @@ module.exports = {
 	intra: {
 		clientID: '4569729ef009a6497fb70ec5d34a7829529fd527ad91f04cb0b741490538cb8a',
 		clientSecret: '5f3878c5d242ca6bdfd765eb1c3737a52ffa19864cde19e3b7e7bd1f0da8a8b0'
+	},
+	email: {
+		user: 'wtc.test.jpirzent@gmail.com',
+		pass: 'wethinkcode'
 	}
 };
